@@ -5,6 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import popUp from './Components/popUp';
 import Button from "react-bootstrap/Button";
+import './popUp.css'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,7 +27,7 @@ function App() {
         <p>
           <button type="button"// onClick={() => setCount((count) => count + 12)}
           >
-            <popUp trigger={}>
+            <popUp trigger={false}>
               <h3>
                 Qui est-ce?
               </h3>
