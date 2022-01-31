@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Helloa + React!</p>
+        <p>Holla amigos + React!</p>
         <p>
           <button type="button" onClick={() => setCount((count) => count + 12)}>
             count is: {count}
