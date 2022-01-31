@@ -12,11 +12,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-<<<<<<< HEAD
         <p>qs + React!</p>
-=======
         <p>Holla amigos + React!</p>
->>>>>>> 941e3919a1b8cdd4795ea6b24fa8ed3f86ccbecc
         <p>
           <button type="button" onClick={() => setCount((count) => count + 12)}>
             count is: {count}
