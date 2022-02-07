@@ -5,10 +5,10 @@ function popUp (props){
     return (props.trigger) ? (
         <div className = "popUp">
              <div className = "popUp-inner">
-                 <button className="closebutton"> 
+                 <button className="close-btn" onClick={()=> propTypes.setTrigger (false)}> 
                  Get rid of me
                  </button>
-                 {propTypes.children}
+                 {props.children}
              </div>
     
 

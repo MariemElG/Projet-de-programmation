@@ -3,9 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import popUp from './Components/popUp';
+import popUp from './Componenets/popUp';
 import Button from "react-bootstrap/Button";
 import './popUp.css'
+import {useState} from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
        
         <p>Important question : </p>
         <p>
