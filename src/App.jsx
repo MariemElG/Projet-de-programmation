@@ -14,6 +14,7 @@ function App() {
       
       <main> 
         <p>Important question : </p>
+        <p> Want to play ? </p>
      
           <Button  onClick={() => setButtonpopUp(true)} > PLay  </Button>
       </main>
@@ -21,7 +22,7 @@ function App() {
               <h3>
                 Qui est-ce?
               </h3>
-              <p> Want to play ? </p>
+              
             </PopUp>
        
    
