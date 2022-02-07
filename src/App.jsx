@@ -9,14 +9,6 @@ import {useState} from 'react';
 function App() {
   const [buttonpopUp, setButtonpopUp] = useState(false);
 
-  //const htmlelement = document.getElementById('#gam') : js
- // htmlelement.innerHTML += "<div class=”card”><img src=”img/’ + pics[i] + ‘ “></div>" : js
-  // $(“#gameboard”).append(‘<div class=”card”><img src=”img/’ + pics[i] + ‘ “></div>’) : jquery
-
-  
-
-
-
   return (
     <div className="App">
       
