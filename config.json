@@ -1,0 +1,245 @@
+{
+  "locationImages": "personnages/",
+  "possibilites": [
+    {
+      "fichier": "imageonline-co-split-image-1.png",
+      "prenom": "Samuel",
+      "genre": "homme",
+      "cheveux": "blancs",
+      "lunettes": "oui",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-2.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blonds",
+      "lunettes": "oui",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-3.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blancs",
+      "lunettes": "oui",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-4.png",
+      "prenom": "Martin",
+      "genre": "homme",
+      "cheveux": "blancs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-5.png",
+      "prenom": "Luc",
+      "genre": "homme",
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "barbe"
+    },
+    {
+      "fichier": "imageonline-co-split-image-6.png",
+      "prenom": "Clara",
+      "genre": "femme",
+      "cheveux": "orange",
+      "lunettes": "oui",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-7.png",
+      "prenom": "Anita",
+      "genre": "femme",
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-8.png",
+      "prenom": "Alfred",
+      "genre": "homme",
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "moustache"
+    },
+    {
+      "fichier": "imageonline-co-split-image-9.png",
+      "prenom": "Suzane",
+      "genre": "femme",
+      "cheveux": "blancs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-10.png",
+      "prenom": "Roméo",
+      "genre": "homme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux" : "moustache et barbe"
+    },
+    {
+      "fichier": "imageonline-co-split-image-11.png",
+      "prenom": "Omar" ,
+      "genre": "homme",
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-12.png",
+      "prenom": "Manu",
+      "genre": "homme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "moustache"
+    },
+    {
+      "fichier": "imageonline-co-split-image-13.png",
+      "prenom": "Lucas",
+      "genre": "homme",
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-14.png",
+      "prenom": "Mario",
+      "genre": "homme",
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "barbe"
+    },
+    {
+      "fichier": "imageonline-co-split-image-15.png",
+      "prenom": "Jérémie",
+      "genre": "homme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-16.png",
+      "prenom": "Max",
+      "genre": "homme",
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "moustache"
+    },
+    {
+      "fichier": "imageonline-co-split-image-17.png",
+      "prenom": "Timéo",
+      "genre": "homme",
+      "cheveux": "noirs",
+      "lunettes": "oui",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-18.png",
+      "prenom": "Oscar",
+      "genre": "homme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-19.png",
+      "prenom": "Eric",
+      "genre": "homme",
+      "cheveux": "blancs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-20.png",
+      "prenom": "Maria",
+      "genre": "femme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-21.png",
+      "prenom": "Tony",
+      "genre": "homme",
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux" : "barbe"
+    },
+    {
+      "fichier": "imageonline-co-split-image-22.png",
+      "prenom": "Félix",
+      "genre": "homme",
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux" : "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-23.png",
+      "prenom": "Charlie",
+      "genre": "homme",
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "moustache"
+    },
+    {
+      "fichier": "imageonline-co-split-image-24.png",
+      "prenom": "Anna",
+      "genre": "femme",
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux" : "non"
+    }
+  ]
+}
