@@ -9,7 +9,7 @@ import './popUp.css'
 import {useState} from 'react';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [buttonpopUp, setButtonpopUp] = useState(false);
 
   //const htmlelement = document.getElementById('#gam') : js
  // htmlelement.innerHTML += "<div class=”card”><img src=”img/’ + pics[i] + ‘ “></div>" : js
@@ -21,44 +21,23 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-
-       
+      
+      <main> 
         <p>Important question : </p>
-        <p>
-          <button type="button"// onClick={() => setCount((count) => count + 12)}
-          >
-            <popUp trigger={false}>
+     
+          <button type="button" onClick={() => setButtonpopUp(true)} >Open popUp </button>
+      </main>
+            <popUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
               <h3>
                 Qui est-ce?
               </h3>
+              <p> Want to play ? </p>
             </popUp>
-            Want to play ? 
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+           
+          
+  
+       
+   
     </div>
   );
 }
