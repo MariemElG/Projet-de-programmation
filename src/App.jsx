@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, {useState} from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import PopUp from './Componenets/PopUp';
+import PopUp from './Components/PopUp';
 import Button from "react-bootstrap/Button";
-import './popUp.css'
-import {useState} from 'react';
+import './Components/popUp.css'
+
 
 function App() {
   const [buttonpopUp, setButtonpopUp] = useState(false);
@@ -23,9 +23,6 @@ function App() {
               </h3>
               <p> Want to play ? </p>
             </PopUp>
-           
-          
-  
        
    
     </div>
