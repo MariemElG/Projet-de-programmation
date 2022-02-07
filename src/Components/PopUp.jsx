@@ -1,4 +1,5 @@
 import React from 'react'
+import './popUp.css'
 
 import { propTypes } from 'react-bootstrap/esm/Image'
 function PopUp (props){
