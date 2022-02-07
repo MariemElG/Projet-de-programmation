@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { propTypes } from 'react-bootstrap/esm/Image'
-function popUp (props){
+function PopUp (props){
     return (props.trigger) ? (
         <div className = "popUp">
              <div className = "popUp-inner">
@@ -15,4 +15,4 @@ function popUp (props){
         </div>
     ) : "";
 }
-export default popUp
+export default PopUp

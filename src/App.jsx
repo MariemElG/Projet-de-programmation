@@ -1,9 +1,7 @@
 import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import popUp from './Componenets/popUp';
+import PopUp from './Componenets/PopUp';
 import Button from "react-bootstrap/Button";
 import './popUp.css'
 import {useState} from 'react';
@@ -25,14 +23,14 @@ function App() {
       <main> 
         <p>Important question : </p>
      
-          <button type="button" onClick={() => setButtonpopUp(true)} >Open popUp </button>
+          <Button  onClick={() => setButtonpopUp(true)} > PLay  </Button>
       </main>
-            <popUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
+            <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
               <h3>
                 Qui est-ce?
               </h3>
               <p> Want to play ? </p>
-            </popUp>
+            </PopUp>
            
           
   
