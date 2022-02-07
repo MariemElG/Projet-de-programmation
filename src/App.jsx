@@ -1,47 +1,44 @@
-import { useState } from "react";
-import logo from "./logo.svg";
+"use strict";
+
+import React, { useState } from "react";
+import data from "../config.json";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 
-function App() {
-  const [count, setCount] = useState(0);
+function Personnage(props) {
+  return (
+    <img
+      className="Personnage"
+      onClick={() => {
+        alert(props.name);
+      }}
+      src={props.src}
+      alt={props.name}
+    />
+  );
+}
+
+function Board(props) {
+  const [chosenPerson, setChosenPerson] = useState(null);
 
   return (
+    <div>
+      {data.possibilites.map((p) => (
+        <Personnage
+          name={p.prenom}
+          src={"/" + data.locationImages + p.fichier}
+        />
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>qs npoo+ React!</p>
-        <p>Holla hiba + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 12)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Board />
     </div>
   );
 }

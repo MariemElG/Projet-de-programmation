@@ -1,0 +1,197 @@
+{
+  "locationImages": "personnages/",
+  "possibilites": [
+    {
+      "fichier": "imageonline-co-split-image-1.png",
+      "prenom": "Samuel",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "oui"
+    },
+    {
+      "fichier": "imageonline-co-split-image-2.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-3.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-4.png",
+      "prenom": "Martin",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "non",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-5.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-6.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-7.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-8.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-9.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-10.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-11.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-12.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-13.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-14.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-15.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-16.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-17.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-18.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-19.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-20.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-21.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-22.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-23.png",
+      "prenom": "Simon",
+      "genre": "homme",
+      "cheveux": "blanc",
+      "lunettes": "oui",
+      "chauve": "non"
+    },
+    {
+      "fichier": "imageonline-co-split-image-24.png",
+      "prenom": "Léon",
+      "genre": "homme",
+      "cheveux": "blond",
+      "lunettes": "oui",
+      "chauve": "non"
+    }
+  ]
+}
