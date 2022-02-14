@@ -9,7 +9,8 @@
       "lunettes": "oui",
       "chauve": "oui",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non" ,
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-2.png",
@@ -19,7 +20,8 @@
       "lunettes": "oui",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-3.png",
@@ -29,7 +31,8 @@
       "lunettes": "oui",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-4.png",
@@ -39,7 +42,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "oui",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-5.png",
@@ -49,7 +53,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "barbe"
+      "poils faciaux" : "barbe",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-6.png",
@@ -59,7 +64,8 @@
       "lunettes": "oui",
       "chauve": "non",
       "chapeau": "oui",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "oui"
     },
     {
       "fichier": "imageonline-co-split-image-7.png",
@@ -69,7 +75,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-8.png",
@@ -79,7 +86,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "moustache"
+      "poils faciaux" : "moustache",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-9.png",
@@ -89,7 +97,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-10.png",
@@ -99,7 +108,8 @@
       "lunettes": "non",
       "chauve": "oui",
       "chapeau": "non",
-      "poils faciaux" : "moustache et barbe"
+      "poils faciaux" : "moustache et barbe",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-11.png",
@@ -109,7 +119,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-12.png",
@@ -119,7 +130,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "moustache"
+      "poils faciaux" : "moustache",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-13.png",
@@ -129,7 +141,8 @@
       "lunettes": "non",
       "chauve": "oui",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-14.png",
@@ -139,7 +152,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "barbe"
+      "poils faciaux" : "barbe",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-15.png",
@@ -149,7 +163,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "oui",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-16.png",
@@ -159,7 +174,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "moustache"
+      "poils faciaux" : "moustache",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-17.png",
@@ -169,7 +185,8 @@
       "lunettes": "oui",
       "chauve": "oui",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-18.png",
@@ -179,7 +196,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-19.png",
@@ -189,7 +207,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-20.png",
@@ -199,7 +218,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "oui",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-21.png",
@@ -209,7 +229,8 @@
       "lunettes": "non",
       "chauve": "oui",
       "chapeau": "non",
-      "poils faciaux" : "barbe"
+      "poils faciaux" : "barbe",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-22.png",
@@ -219,7 +240,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "oui",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-23.png",
@@ -229,7 +251,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "moustache"
+      "poils faciaux" : "moustache",
+      "boucles d'oreilles" : "non"
     },
     {
       "fichier": "imageonline-co-split-image-24.png",
@@ -239,7 +262,8 @@
       "lunettes": "non",
       "chauve": "non",
       "chapeau": "non",
-      "poils faciaux" : "non"
+      "poils faciaux" : "non",
+      "boucles d'oreilles" : "oui"
     }
   ]
 }
