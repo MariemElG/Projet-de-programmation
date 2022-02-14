@@ -5,193 +5,265 @@
       "fichier": "imageonline-co-split-image-1.png",
       "prenom": "Samuel",
       "genre": "homme",
-      "cheveux": "blanc",
+      "cheveux": "blancs",
       "lunettes": "oui",
-      "chauve": "oui"
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-2.png",
       "prenom": "Léon",
       "genre": "homme",
-      "cheveux": "blond",
+      "cheveux": "blonds",
       "lunettes": "oui",
-      "chauve": "non"
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-3.png",
       "prenom": "Simon",
       "genre": "homme",
-      "cheveux": "blanc",
+      "cheveux": "blancs",
       "lunettes": "oui",
-      "chauve": "non"
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-4.png",
       "prenom": "Martin",
       "genre": "homme",
-      "cheveux": "blanc",
+      "cheveux": "blancs",
       "lunettes": "non",
-      "chauve": "non"
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-5.png",
-      "prenom": "Simon",
+      "prenom": "Luc",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "barbe",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-6.png",
-      "prenom": "Léon",
-      "genre": "homme",
-      "cheveux": "blond",
+      "prenom": "Clara",
+      "genre": "femme",
+      "cheveux": "orange",
       "lunettes": "oui",
-      "chauve": "non"
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "oui"
     },
     {
       "fichier": "imageonline-co-split-image-7.png",
-      "prenom": "Simon",
-      "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "prenom": "Anita",
+      "genre": "femme",
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-8.png",
-      "prenom": "Léon",
+      "prenom": "Alfred",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "moustache",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-9.png",
-      "prenom": "Simon",
-      "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "prenom": "Suzane",
+      "genre": "femme",
+      "cheveux": "blancs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-10.png",
-      "prenom": "Léon",
+      "prenom": "Roméo",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux": "moustache et barbe",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-11.png",
-      "prenom": "Simon",
+      "prenom": "Omar",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-12.png",
-      "prenom": "Léon",
+      "prenom": "Manu",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "moustache",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-13.png",
-      "prenom": "Simon",
+      "prenom": "Lucas",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-14.png",
-      "prenom": "Léon",
+      "prenom": "Mario",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "barbe",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-15.png",
-      "prenom": "Simon",
+      "prenom": "Jérémie",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-16.png",
-      "prenom": "Léon",
+      "prenom": "Max",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "moustache",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-17.png",
-      "prenom": "Simon",
+      "prenom": "Timéo",
       "genre": "homme",
-      "cheveux": "blanc",
+      "cheveux": "noirs",
       "lunettes": "oui",
-      "chauve": "non"
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-18.png",
-      "prenom": "Léon",
+      "prenom": "Oscar",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-19.png",
-      "prenom": "Simon",
+      "prenom": "Eric",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "blancs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-20.png",
-      "prenom": "Léon",
-      "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "prenom": "Maria",
+      "genre": "femme",
+      "cheveux": "marron",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-21.png",
-      "prenom": "Simon",
+      "prenom": "Tony",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "orange",
+      "lunettes": "non",
+      "chauve": "oui",
+      "chapeau": "non",
+      "poils faciaux": "barbe",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-22.png",
-      "prenom": "Léon",
+      "prenom": "Félix",
       "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "oui",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-23.png",
-      "prenom": "Simon",
+      "prenom": "Charlie",
       "genre": "homme",
-      "cheveux": "blanc",
-      "lunettes": "oui",
-      "chauve": "non"
+      "cheveux": "blonds",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "moustache",
+      "boucles d'oreilles": "non"
     },
     {
       "fichier": "imageonline-co-split-image-24.png",
-      "prenom": "Léon",
-      "genre": "homme",
-      "cheveux": "blond",
-      "lunettes": "oui",
-      "chauve": "non"
+      "prenom": "Anna",
+      "genre": "femme",
+      "cheveux": "noirs",
+      "lunettes": "non",
+      "chauve": "non",
+      "chapeau": "non",
+      "poils faciaux": "non",
+      "boucles d'oreilles": "oui"
     }
   ]
 }

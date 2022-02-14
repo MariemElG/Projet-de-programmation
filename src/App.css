@@ -13,6 +13,18 @@
   color: white;
 }
 
+.Menu {
+  display: flex;
+  gap: 2rem;
+}
+
 .Personnage {
   margin: 1.5rem;
+  height: 8rem;
+  width: 6rem;
+}
+
+.ChosenPersonnage {
+  border: solid;
+  border-color: red;
 }
