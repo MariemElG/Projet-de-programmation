@@ -25,6 +25,7 @@ function Personnage(props) {
 }
 
 function Menu(props) {
+  // TODO
   function handleSubmit(event) {
     event.preventDefault();
     selectAttribut("genre");
@@ -48,7 +49,7 @@ function Menu(props) {
       </Button>{" "}
       <Button variant="light">Enlever</Button>{" "}
       <div>
-        <Dropdown onSelect={() => {}}>
+        <Dropdown onSelect={() => { }}>
           <Dropdown.Toggle variant="light" id="dropdown-basic">
             Attribut 1
           </Dropdown.Toggle>
