@@ -8,6 +8,7 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import Form from "react-bootstrap/Form";
 
 const random = () => Math.floor(Math.random() * data.possibilites.length); // choose random personnage
 
@@ -31,56 +32,40 @@ function Menu(props) {
     selectAttribut("genre");
   }
 
-  function selectAttribut(atr) {
-    const attributs = [];
 
-    data.possibilites.forEach((p) => {
-      if (!attributs.includes(p[atr])) attributs.push(p[atr]);
-    });
+  function AttributeSelector(props) {
+    function QualitySelector(props) {
+      const [showQualities, setShowQualities] = useState(false)
+      const onClick = () => setShowResults(true)
+    }
 
-    console.log(attributs);
-    return attributs;
+    return (
+      <Form.Select aria-label="Default select example" onSelect={() => { }}>
+        <option>Attribut</option>
+
+        {Object.keys(data.possibilites[0]).map((key) => {
+          if (key != "fichier") {
+            return <option value={key}>{key}</option>
+          }
+        })}
+      </Form.Select>
+    )
   }
+
+
+
+
 
   return (
     <form className="Menu" onSubmit={handleSubmit}>
-      <Button as="" variant="light">
+      <Button variant="light" onClick={() => { }}>
         Ajouter
       </Button>{" "}
-      <Button variant="light">Enlever</Button>{" "}
+      <Button variant="light" onClick={() => { }}>Enlever</Button>{" "}
       <div>
-        <Dropdown onSelect={() => { }}>
-          <Dropdown.Toggle variant="light" id="dropdown-basic">
-            Attribut 1
-          </Dropdown.Toggle>
+        <AttributeSelector />
+        <AttributeSelector />
 
-          <Dropdown.Menu>
-            {Object.keys(data.possibilites[0]).map((key) => {
-              if (key != "fichier") {
-                return <Dropdown.Item eventKey={key}>{key}</Dropdown.Item>;
-              }
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown-basic">
-            Attribut 2
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            {Object.keys(data.possibilites[0]).map((key) => {
-              if (key != "fichier") {
-                return (
-                  <Dropdown.Item
-                    eventKey={Object.keys(data.possibilites[0]).indexOf(key)}
-                  >
-                    {key}
-                  </Dropdown.Item>
-                );
-              }
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
       </div>
       <Button variant="light">Et</Button> <Button variant="light">Ou</Button>{" "}
       <Button type="submit" variant="light">
