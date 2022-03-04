@@ -12,17 +12,14 @@ const chosenPerson = data.possibilites[Math.floor(Math.random() * data.possibili
 
 function Board(props) {
   const [questions, setQuestions] = useState([]);
+  const [mistakeNumber, setMistakeNumber] = useState(0)
+
   const eliminatedUsers = [];
-
-
   data.possibilites.forEach((p) => {
     questions.forEach((q) => {
       if ((p[q[0]] === q[1]) !== q[2]) eliminatedUsers.push(data.possibilites.indexOf(p))
     })
   })
-
-  console.log(eliminatedUsers)
-
 
   return (
     <div>
@@ -33,6 +30,8 @@ function Board(props) {
               <Personnage
                 name={p.prenom}
                 src={"/" + data.locationImages + p.fichier}
+                questions={questions}
+                setQuestions={setQuestions}
               />
             </span>
           )
@@ -41,6 +40,9 @@ function Board(props) {
             <Personnage
               name={p.prenom}
               src={"/" + data.locationImages + p.fichier}
+              questions={questions}
+              mistakeNumber={mistakeNumber}
+              setMistakeNumber={setMistakeNumber}
             />
           );
         }
@@ -55,7 +57,13 @@ function Board(props) {
       <img
         className="Personnage"
         onClick={() => {
-          if (props.name == chosenPerson["prenom"]) { alert("C'est moi ! T'as posé " + questions.length + " questions."); window.location.reload(false); } else { alert("Nope !") }
+          if (props.name == chosenPerson["prenom"]) {
+            alert("C'est moi ! T'as posé " + (props.mistakeNumber * 3 + props.questions.length) + " questions.");
+            window.location.reload(false);
+          } else {
+            alert("Nope ! Comme punition, votre nombre de questions a été augmenté de trois.");
+            setMistakeNumber(mistakeNumber + 1)
+          }
         }}
         src={props.src}
         alt={props.name}
