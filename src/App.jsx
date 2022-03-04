@@ -8,16 +8,26 @@ import data from "../config.json";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const random = () => Math.floor(Math.random() * data.possibilites.length); // choose random personnage
-const chosenPerson = random();
+const chosenPerson = data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
 
 function Board(props) {
   const [questions, setQuestions] = useState([]);
+  const eliminatedUsers = [];
+
+
+  data.possibilites.forEach((p) => {
+    questions.forEach((q) => {
+      if ((p[q[0]] === q[1]) !== q[2]) eliminatedUsers.push(data.possibilites.indexOf(p))
+    })
+  })
+
+  console.log(eliminatedUsers)
+
 
   return (
     <div>
       {data.possibilites.map((p) => {
-        if (chosenPerson === data.possibilites.indexOf(p))
+        if (eliminatedUsers.includes(data.possibilites.indexOf(p))) {
           return (
             <span className="ChosenPersonnage">
               <Personnage
@@ -25,15 +35,17 @@ function Board(props) {
                 src={"/" + data.locationImages + p.fichier}
               />
             </span>
+          )
+        } else {
+          return (
+            <Personnage
+              name={p.prenom}
+              src={"/" + data.locationImages + p.fichier}
+            />
           );
-
-        return (
-          <Personnage
-            name={p.prenom}
-            src={"/" + data.locationImages + p.fichier}
-          />
-        );
+        }
       })}
+
       <Menu questions={questions} setQuestions={setQuestions} />
     </div>
   );
@@ -42,7 +54,9 @@ function Board(props) {
     return (
       <img
         className="Personnage"
-        onClick={() => { }}
+        onClick={() => {
+          if (props.name == chosenPerson["prenom"]) { alert("C'est moi ! T'as posé " + questions.length + " questions."); window.location.reload(false); } else { alert("Nope !") }
+        }}
         src={props.src}
         alt={props.name}
       />
@@ -53,21 +67,18 @@ function Board(props) {
     function handleSubmit(event) {
       event.preventDefault();
       if (event.target.attribut.value === "Attribut") return alert("Choisir un attribut")
+      if (event.target.qualite.value === chosenPerson[event.target.attribut.value]) { alert("Vrai !") } else { alert("Faux !") }
 
-      props.setQuestions(prevQuestions => ([...prevQuestions, [event.target.attribut.value, event.target.qualite.value]]))
-      console.log(event.target.attribut.value + " === " + event.target.qualite.value)
+      props.setQuestions(prevQuestions => ([...prevQuestions, [event.target.attribut.value, event.target.qualite.value, event.target.qualite.value === chosenPerson[event.target.attribut.value]]]))
     }
 
     return (
       <form className="Menu" onSubmit={(event) => handleSubmit(event)}>
-        <Button variant="light" onClick={() => { }}>
-          Ajouter
-        </Button>{" "}
-        <Button variant="light" onClick={() => { }}>Enlever</Button>{" "}
+
         <div>
           <AttributeSelector />
         </div>
-        <Button variant="light">Et</Button> <Button variant="light">Ou</Button>{" "}
+
         <Button type="submit" variant="light">
           Valider
         </Button>{" "}
