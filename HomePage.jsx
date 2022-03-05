@@ -6,33 +6,44 @@ import Button from "react-bootstrap/Button";
 const HomePage = () => {
   return (
     <div className="homePage">
-      <div className="nameGame">Guiss Who ???!!!!!!!</div>
-
       <div className="buttonList">
-        <h3 className="welcome">
-          {" "}
-          Welcome to the game, please choose one of the buttons :
-        </h3>
-        <Button href="" className="btn" variant="outline-primary">
-          Single player
-        </Button>{" "}
-        <br></br>
-        <Button href="" className="btn" variant="outline-primary">
-          Multi player
-        </Button>{" "}
-        <br></br>
-        <Button
-          as="a"
-          href="/src/more.html"
-          className="btn"
-          variant="outline-primary"
-        >
-          More about the Game
-        </Button>{" "}
+        <ul>
+          <li>
+            <button class="button" type="button" onclick={Board}>
+              Single-player
+            </button>
+          </li>
+          <li>
+            <br />
+            <button class="button" type="button" onclick={Board}>
+              Multi-player
+            </button>
+          </li>
+          <li>
+            <br />
+
+            <button
+              class="button"
+              type="button"
+              onClick={(event) => (window.location.href = "src/about.html")}
+            >
+              What is Guiss Who?
+            </button>
+          </li>
+        </ul>
         <br></br>
       </div>
     </div>
   );
 };
+
+function Title(props) {
+  return (
+    <h1 className="Title">
+      {" "}
+      <span className="guess"> Guess</span> Who?{" "}
+    </h1>
+  );
+}
 
 export default HomePage;
