@@ -1,0 +1,121 @@
+.App {
+  padding: 5rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-image: url("assets/back.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.PopUp {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+}
+.PopUp-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 1220px;
+  background-image: url("assets/backpop.jpg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid#5b5f5b;
+  border-radius: 11px;
+}
+
+.PopUp-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
+  color: rgb(245, 245, 104);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: "OakesGroteskBold";
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  letter-spacing: 2px;
+  margin-left: 1.5em;
+}
+.close-btn:hover {
+  background-color: rgb(51, 44, 44);
+  cursor: pointer;
+  color: black;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button {
+  margin-top: 1em;
+  width: auto;
+  height: 38px;
+  padding: 5px 20px 3px;
+  border: 1px solid #90ee90;
+  background-color: rgb(0, 0, 0);
+  color: #90ee90;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: "OakesGroteskBold";
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  letter-spacing: 2px;
+  margin-left: 1.5em;
+}
+
+.button:hover {
+  background-color: #72c072;
+  cursor: pointer;
+  color: black;
+}
+
+.Title {
+  font-family: "Holtwood One SC", serif;
+  color: rgb(245, 245, 104);
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.guess {
+  color: #90ee90;
+}
+.Menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.Personnage {
+  margin: 1.5rem;
+  height: 8rem;
+  width: 6rem;
+}
