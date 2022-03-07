@@ -1,47 +1,257 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+"use strict";
 
+import React, { useState } from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
+import "./App.css";
+import data from "../config.json";
 
-function App() {
-  const [count, setCount] = useState(0);
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+const chosenPerson =
+  data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
+
+const HomePage = () => {
+  const [buttonpopUp, setButtonpopUp] = useState(false);
 
   return (
+    <div className="homePage">
+      <div className="buttonList">
+        <ul>
+          <li>
+            <button
+              class="button"
+              type="button"
+              onClick={() => {
+                setButtonpopUp(true);
+              }}
+            >
+              Single-player
+            </button>
+          </li>
+          <li>
+            <br />
+            <button class="button" type="button">
+              Multi-player
+            </button>
+          </li>
+          <li>
+            <br />
+
+            <button
+              class="button"
+              type="button"
+              onClick={(event) => (window.location.href = "src/about.html")}
+            >
+              What is Guiss Who?
+            </button>
+          </li>
+        </ul>
+        <br></br>
+      </div>
+      <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
+        {" "}
+        <Board />
+      </PopUp>
+    </div>
+  );
+};
+
+function Title(props) {
+  return (
+    <h1 className="Title">
+      {" "}
+      <span className="guess"> Guess</span> Who?{" "}
+    </h1>
+  );
+}
+function PopUp(props) {
+  return props.trigger ? (
+    <div className="PopUp">
+      <div className="PopUp-inner">
+        <button className="close-btn" onClick={() => props.setTrigger(false)}>
+          x
+        </button>
+        {props.children}
+      </div>
+    </div>
+  ) : (
+    ""
+  );
+}
+
+function Board(props) {
+  const [questions, setQuestions] = useState([]);
+  const [mistakeNumber, setMistakeNumber] = useState(0);
+
+  const eliminatedUsers = [];
+  data.possibilites.forEach((p) => {
+    questions.forEach((q) => {
+      if ((p[q[0]] === q[1]) !== q[2])
+        eliminatedUsers.push(data.possibilites.indexOf(p));
+    });
+  });
+
+  return (
+    <div>
+      {data.possibilites.map((p) => {
+        if (eliminatedUsers.includes(data.possibilites.indexOf(p))) {
+          return (
+            <span className="PersonnageElimine">
+              <Personnage
+                name={p.prenom}
+                src={"/" + data.locationImages + "no.jpg"}
+                questions={questions}
+                setQuestions={setQuestions}
+              />
+            </span>
+          );
+        } else {
+          return (
+            <Personnage
+              name={p.prenom}
+              src={"/" + data.locationImages + p.fichier}
+              questions={questions}
+              mistakeNumber={mistakeNumber}
+              setMistakeNumber={setMistakeNumber}
+            />
+          );
+        }
+      })}
+
+      <Menu questions={questions} setQuestions={setQuestions} />
+    </div>
+  );
+
+  function Personnage(props) {
+    return (
+      <img
+        className="Personnage"
+        onClick={() => {
+          if (props.name == chosenPerson["prenom"]) {
+            alert(
+              "C'est moi ! T'as posé " +
+                (props.mistakeNumber * 3 + props.questions.length) +
+                " questions."
+            );
+            window.location.reload(false);
+          } else {
+            alert(
+              "Nope ! Comme punition, votre nombre de questions a été augmenté de trois."
+            );
+            setMistakeNumber(mistakeNumber + 1);
+          }
+        }}
+        src={props.src}
+        alt={props.name}
+      />
+    );
+  }
+
+  function Menu(props) {
+    function handleSubmit(event) {
+      event.preventDefault();
+      if (event.target.attribut.value === "Attribut")
+        return alert("Choisir un attribut");
+      if (
+        event.target.qualite.value === chosenPerson[event.target.attribut.value]
+      ) {
+        alert("Vrai !");
+      } else {
+        alert("Faux !");
+      }
+
+      props.setQuestions((prevQuestions) => [
+        ...prevQuestions,
+        [
+          event.target.attribut.value,
+          event.target.qualite.value,
+          event.target.qualite.value ===
+            chosenPerson[event.target.attribut.value],
+        ],
+      ]);
+    }
+
+    return (
+      <form className="Menu" onSubmit={(event) => handleSubmit(event)}>
+        <div>
+          <AttributeSelector />
+        </div>
+        <Button type="submit" variant="light" className="button">
+          Valider
+        </Button>{" "}
+      </form>
+    );
+
+    function AttributeSelector(props) {
+      const [attribut, setAttribut] = useState(null);
+
+      function handleChange(e) {
+        setAttribut(e.target.value);
+      }
+
+      return (
+        <div>
+          <Form.Select
+            name="attribut"
+            onChange={(e) => handleChange(e)}
+            className="button"
+          >
+            <option>Attribut</option>
+            {Object.keys(data.possibilites[0]).map((key) => {
+              if (key != "fichier") {
+                return <option value={key}>{key}</option>;
+              }
+            })}
+          </Form.Select>
+          <QualitySelector attribut={attribut} />
+        </div>
+      );
+
+      function QualitySelector(props) {
+        const filterQualities = (attribut) => {
+          const qualites = [];
+
+          data.possibilites.forEach((personnage) => {
+            if (
+              !eliminatedUsers.includes(
+                data.possibilites.indexOf(personnage)
+              ) &&
+              !qualites.includes(personnage[attribut])
+            ) {
+              qualites.push(personnage[attribut]);
+            }
+          });
+
+          return qualites;
+        };
+
+        if (!props.attribut)
+          return (
+            <Form.Select name="qualite" className="button">
+              <option>Qualités</option>
+            </Form.Select>
+          );
+
+        return (
+          <Form.Select name="qualite" className="button">
+            {filterQualities(props.attribut).map((q) => (
+              <option value={q}>{q}</option>
+            ))}
+          </Form.Select>
+        );
+      }
+    }
+  }
+}
+
+function App() {
+  return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>qs npoo+ React!</p>
-        <p>Holla hiba + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 12)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Title />
+      <HomePage />
+      <PopUp />
     </div>
   );
 }
