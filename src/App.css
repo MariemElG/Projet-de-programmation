@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
   background-image: url("assets/back.jpg");
   height: 100%;
@@ -29,6 +29,7 @@
   display: flex;
   align-items: center;
 }
+
 .PopUp-inner {
   position: relative;
   padding: 32px;
@@ -42,7 +43,19 @@
   border: 1px solid#5b5f5b;
   border-radius: 11px;
 }
+.PopUp-innerSmall {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  background-image: url("assets/settings.jpg");
 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid#5b5f5b;
+  border-radius: 11px;
+}
 .PopUp-inner .close-btn {
   position: absolute;
   top: 16px;
