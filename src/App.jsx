@@ -8,13 +8,14 @@ import data from "../config.json";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Table } from "react-bootstrap";
 
 const chosenPerson =
   data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
 
 const HomePage = () => {
   const [buttonpopUp, setButtonpopUp] = useState(false);
-
+  const [buttonpopUp1, setButtonpopUp1] = useState(false);
   return (
     <div className="homePage">
       <div className="buttonList">
@@ -38,13 +39,25 @@ const HomePage = () => {
           </li>
           <li>
             <br />
+            <button
+              class="button"
+              type="button"
+              onClick={() => {
+                setButtonpopUp1(true);
+              }}
+            >
+              Generator
+            </button>
+          </li>
+          <li>
+            <br />
 
             <button
               class="button"
               type="button"
               onClick={(event) => (window.location.href = "src/about.html")}
             >
-              What is Guiss Who?
+              What is Guess Who?
             </button>
           </li>
         </ul>
@@ -53,6 +66,10 @@ const HomePage = () => {
       <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
         {" "}
         <Board />
+      </PopUp>
+      <PopUp trigger={buttonpopUp1} setTrigger={setButtonpopUp1}>
+        {" "}
+        <Generator />
       </PopUp>
     </div>
   );
@@ -114,7 +131,7 @@ function Board(props) {
               src={"/" + data.locationImages + p.fichier}
               questions={questions}
               mistakeNumber={mistakeNumber}
-              setMistakeNumber={setMistakeNumber}
+              setMistakeNumber={setMistakeNumber} // why did he add mistake number and question
             />
           );
         }
@@ -123,7 +140,6 @@ function Board(props) {
       <Menu questions={questions} setQuestions={setQuestions} />
     </div>
   );
-
   function Personnage(props) {
     return (
       <img
@@ -245,7 +261,107 @@ function Board(props) {
     }
   }
 }
+const Generator = () => {
+  const [nombrePersonnage, setNombrePersonnage] = useState(0);
+  const [buttonpopUpAjouter, setButtonpopUpAjouter] = useState(false);
+  const [buttonpopUpListe, setButtonpopUpListe] = useState(false);
 
+  return (
+    <div>
+      <h1>Generator</h1>
+      <UpperMenu />
+      <Table />
+      <PopUpSmall
+        trigger={buttonpopUpAjouter}
+        setTrigger={setButtonpopUpAjouter}
+      >
+        <AjouterPersonnage />
+      </PopUpSmall>
+      <PopUpSmall trigger={buttonpopUpListe} setTrigger={setButtonpopUpListe}>
+        <ListeAttributs />
+      </PopUpSmall>
+    </div>
+  );
+
+  function AjouterPersonnage(props) {
+    return <h1>Ajouter une personnage</h1>;
+  }
+
+  function ListeAttributs(props) {
+    return <h1>Liste Des Attributs</h1>;
+  }
+  function PopUpSmall(props) {
+    return props.trigger ? (
+      <div className="PopUp PopUpSmall">
+        <div className="PopUp-inner PopUp-innerSmall">
+          <button className="close-btn" onClick={() => props.setTrigger(false)}>
+            x
+          </button>
+          {props.children}
+        </div>
+      </div>
+    ) : (
+      ""
+    );
+  }
+  function UpperMenu(props) {
+    return (
+      <div>
+        <div className="Menu">
+          <div>
+            <div>
+              <label htmlFor="NombrePersonnages">
+                {" "}
+                Nombre de Personnages :
+              </label>
+              <input
+                type="text"
+                className="button"
+                id="NombrePersonnages"
+                value={nombrePersonnage}
+                disabled
+                onInput={(e) => setNombrePersonnage(e.target.value)}
+              />
+            </div>
+          </div>
+          <button
+            className="button"
+            onClick={() => setButtonpopUpAjouter(true)}
+          >
+            Ajouter Une Personnage
+          </button>
+          <button className="button" onClick={() => setButtonpopUpListe(true)}>
+            Liste des Attributs
+          </button>{" "}
+        </div>
+      </div>
+    );
+  }
+  function Table(params) {
+    setNombrePersonnage(data.possibilites.length);
+    return data.possibilites.map((p) => {
+      return (
+        <Personnage1
+          name={p.prenom}
+          src={"/" + data.locationImages + p.fichier}
+        />
+      );
+    });
+
+    function Personnage1(props) {
+      return (
+        <img
+          className="Personnage"
+          src={props.src}
+          alt={props.name}
+          onClick={() => {
+            alert(props.name + "!" + nombrePersonnage);
+          }}
+        />
+      );
+    }
+  }
+};
 function App() {
   return (
     <div className="App">
