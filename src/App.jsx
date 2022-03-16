@@ -268,7 +268,7 @@ const Generator = () => {
 
   return (
     <div>
-      <h1>Generator</h1>
+      <h1 className="titles">Generator</h1>
       <UpperMenu />
       <Table />
       <PopUpSmall
@@ -284,11 +284,47 @@ const Generator = () => {
   );
 
   function AjouterPersonnage(props) {
-    return <h1>Ajouter une personnage</h1>;
+    return (
+      <div>
+        <h1 className="titles">Ajouter une personnage</h1>
+        <br />
+        <Button className="buttonYellow" onClick={() => alert("Not ready yet")}>
+          Choisir une photo
+        </Button>
+        {Object.keys(data.possibilites[0]).map((key) => {
+          if (key != "fichier") {
+            return (
+              <div className="attributs">
+                <div>
+                  <label htmlFor={key} className="property">
+                    <span className="AjouterSpan">{key} :</span>
+                  </label>
+                  <input
+                    type="text"
+                    id={key}
+                    className="buttonYellow value"
+                    value="qualité"
+                    required="required"
+                  />
+                </div>
+              </div>
+            );
+          }
+        })}
+        <Button type="submit" variant="light" className="buttonYellow">
+          Valider
+        </Button>{" "}
+      </div>
+    );
   }
 
   function ListeAttributs(props) {
-    return <h1>Liste Des Attributs</h1>;
+    return (
+      <div>
+        <h1 className="titles">Liste Des Attributs</h1>
+        <br />
+      </div>
+    );
   }
   function PopUpSmall(props) {
     return props.trigger ? (
@@ -324,15 +360,15 @@ const Generator = () => {
               />
             </div>
           </div>
-          <button
+          <Button
             className="button"
             onClick={() => setButtonpopUpAjouter(true)}
           >
             Ajouter Une Personnage
-          </button>
-          <button className="button" onClick={() => setButtonpopUpListe(true)}>
+          </Button>
+          <Button className="button" onClick={() => setButtonpopUpListe(true)}>
             Liste des Attributs
-          </button>{" "}
+          </Button>{" "}
         </div>
       </div>
     );
@@ -355,7 +391,7 @@ const Generator = () => {
           src={props.src}
           alt={props.name}
           onClick={() => {
-            alert(props.name + "!" + nombrePersonnage);
+            alert(props.name + "!");
           }}
         />
       );
