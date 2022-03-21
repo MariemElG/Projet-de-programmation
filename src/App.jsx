@@ -8,17 +8,70 @@ import data from "../config.json";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Table } from "react-bootstrap";
 
-const savedGame = localStorage.getItem("session");
+const savedGame = localStorage.getItem('session');
 
-const chosenPerson = savedGame
-  ? JSON.parse(savedGame).chosenPerson
-  : data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
+const chosenPerson = savedGame ? JSON.parse(savedGame).chosenPerson :
+  data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
+
+function Title(props) {
+  return (
+    <h1 className="Title">
+      {" "}
+      <span className="guess"> Guess</span> Who?{" "}
+    </h1>
+  );
+}
 
 const HomePage = () => {
   const [buttonpopUp, setButtonpopUp] = useState(false);
-  const [buttonpopUp1, setButtonpopUp1] = useState(false);
+
+  if (savedGame) {
+    const savedGameData = JSON.parse(savedGame);
+
+    return (
+      <div className="homePage">
+        <div className="buttonList">
+          <ul>
+            <li>
+              <button
+                class="button"
+                type="button"
+                onClick={() => {
+                  setButtonpopUp(true);
+                }}
+              >
+                Single-player
+              </button>
+            </li>
+            <li>
+              <br />
+              <button class="button" type="button">
+                Multi-player
+              </button>
+            </li>
+            <li>
+              <br />
+
+              <button
+                class="button"
+                type="button"
+                onClick={(event) => (window.location.href = "src/about.html")}
+              >
+                What is Guess Who?
+              </button>
+            </li>
+          </ul>
+          <br></br>
+        </div>
+        <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
+          {" "}
+          <Board savedGameData={savedGameData} />
+        </PopUp>
+      </div>
+    );
+  }
+
   return (
     <div className="homePage">
       <div className="buttonList">
@@ -42,18 +95,6 @@ const HomePage = () => {
           </li>
           <li>
             <br />
-            <button
-              class="button"
-              type="button"
-              onClick={() => {
-                setButtonpopUp1(true);
-              }}
-            >
-              Generator
-            </button>
-          </li>
-          <li>
-            <br />
 
             <button
               class="button"
@@ -68,24 +109,13 @@ const HomePage = () => {
       </div>
       <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
         {" "}
-        <Board savedGameData={savedGameData} />
-      </PopUp>
-      <PopUp trigger={buttonpopUp1} setTrigger={setButtonpopUp1}>
-        {" "}
-        <Generator />
+        <Board savedGameData={{ questions: [], mistakeNumber: 0 }} />
       </PopUp>
     </div>
   );
 };
 
-function Title(props) {
-  return (
-    <h1 className="Title">
-      {" "}
-      <span className="guess"> Guess</span> Who?{" "}
-    </h1>
-  );
-}
+
 function PopUp(props) {
   return props.trigger ? (
     <div className="PopUp">
@@ -102,8 +132,8 @@ function PopUp(props) {
 }
 
 function Board(props) {
-  const [questions, setQuestions] = useState([]);
-  const [mistakeNumber, setMistakeNumber] = useState(0);
+  const [questions, setQuestions] = useState(props.savedGameData.questions);
+  const [mistakeNumber, setMistakeNumber] = useState(props.savedGameData.mistakeNumber);
 
   const eliminatedUsers = [];
   data.possibilites.forEach((p) => {
@@ -134,15 +164,17 @@ function Board(props) {
               src={"/" + data.locationImages + p.fichier}
               questions={questions}
               mistakeNumber={mistakeNumber}
-              setMistakeNumber={setMistakeNumber} // why did he add mistake number and question
+              setMistakeNumber={setMistakeNumber}
             />
           );
         }
       })}
 
-      <Menu questions={questions} setQuestions={setQuestions} />
+      <Menu questions={questions} setQuestions={setQuestions} mistakeNumber={mistakeNumber} />
     </div>
   );
+
+
   function Personnage(props) {
     return (
       <img
@@ -151,9 +183,10 @@ function Board(props) {
           if (props.name == chosenPerson["prenom"]) {
             alert(
               "C'est moi ! T'as posé " +
-                (props.mistakeNumber * 3 + props.questions.length) +
-                " questions."
+              (props.mistakeNumber * 3 + props.questions.length) +
+              " questions."
             );
+            localStorage.removeItem('session');
             window.location.reload(false);
           } else {
             alert(
@@ -187,9 +220,14 @@ function Board(props) {
           event.target.attribut.value,
           event.target.qualite.value,
           event.target.qualite.value ===
-            chosenPerson[event.target.attribut.value],
+          chosenPerson[event.target.attribut.value],
         ],
       ]);
+    }
+
+    function handleSaveClick() {
+      localStorage.setItem('session', JSON.stringify({ chosenPerson, questions: props.questions, mistakeNumber: props.mistakeNumber }));
+      window.location.reload(false);
     }
 
     return (
@@ -199,6 +237,9 @@ function Board(props) {
         </div>
         <Button type="submit" variant="light" className="button">
           Valider
+        </Button>{" "}
+        <Button onClick={() => handleSaveClick()} variant="light" className="button" >
+          Sauvgarder
         </Button>{" "}
       </form>
     );
@@ -264,143 +305,7 @@ function Board(props) {
     }
   }
 }
-const Generator = () => {
-  const [nombrePersonnage, setNombrePersonnage] = useState(0);
-  const [buttonpopUpAjouter, setButtonpopUpAjouter] = useState(false);
-  const [buttonpopUpListe, setButtonpopUpListe] = useState(false);
 
-  return (
-    <div>
-      <h1 className="titles">Generator</h1>
-      <UpperMenu />
-      <Table />
-      <PopUpSmall
-        trigger={buttonpopUpAjouter}
-        setTrigger={setButtonpopUpAjouter}
-      >
-        <AjouterPersonnage />
-      </PopUpSmall>
-      <PopUpSmall trigger={buttonpopUpListe} setTrigger={setButtonpopUpListe}>
-        <ListeAttributs />
-      </PopUpSmall>
-    </div>
-  );
-
-  function AjouterPersonnage(props) {
-    return (
-      <div>
-        <h1 className="titles">Ajouter une personnage</h1>
-        <br />
-        <Button className="buttonYellow" onClick={() => alert("Not ready yet")}>
-          Choisir une photo
-        </Button>
-        {Object.keys(data.possibilites[0]).map((key) => {
-          if (key != "fichier") {
-            return (
-              <div className="attributs">
-                <div>
-                  <label htmlFor={key} className="property">
-                    <span className="AjouterSpan">{key} :</span>
-                  </label>
-                  <input
-                    type="text"
-                    id={key}
-                    className="buttonYellow value"
-                    value="qualité"
-                    required="required"
-                  />
-                </div>
-              </div>
-            );
-          }
-        })}
-        <Button type="submit" variant="light" className="buttonYellow">
-          Valider
-        </Button>{" "}
-      </div>
-    );
-  }
-
-  function ListeAttributs(props) {
-    return (
-      <div>
-        <h1 className="titles">Liste Des Attributs</h1>
-        <br />
-      </div>
-    );
-  }
-  function PopUpSmall(props) {
-    return props.trigger ? (
-      <div className="PopUp PopUpSmall">
-        <div className="PopUp-inner PopUp-innerSmall">
-          <button className="close-btn" onClick={() => props.setTrigger(false)}>
-            x
-          </button>
-          {props.children}
-        </div>
-      </div>
-    ) : (
-      ""
-    );
-  }
-  function UpperMenu(props) {
-    return (
-      <div>
-        <div className="Menu">
-          <div>
-            <div>
-              <label htmlFor="NombrePersonnages">
-                {" "}
-                Nombre de Personnages :
-              </label>
-              <input
-                type="text"
-                className="button"
-                id="NombrePersonnages"
-                value={nombrePersonnage}
-                disabled
-                onInput={(e) => setNombrePersonnage(e.target.value)}
-              />
-            </div>
-          </div>
-          <Button
-            className="button"
-            onClick={() => setButtonpopUpAjouter(true)}
-          >
-            Ajouter Une Personnage
-          </Button>
-          <Button className="button" onClick={() => setButtonpopUpListe(true)}>
-            Liste des Attributs
-          </Button>{" "}
-        </div>
-      </div>
-    );
-  }
-  function Table(params) {
-    setNombrePersonnage(data.possibilites.length);
-    return data.possibilites.map((p) => {
-      return (
-        <Personnage1
-          name={p.prenom}
-          src={"/" + data.locationImages + p.fichier}
-        />
-      );
-    });
-
-    function Personnage1(props) {
-      return (
-        <img
-          className="Personnage"
-          src={props.src}
-          alt={props.name}
-          onClick={() => {
-            alert(props.name + "!");
-          }}
-        />
-      );
-    }
-  }
-};
 function App() {
   return (
     <div className="App">
