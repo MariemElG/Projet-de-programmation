@@ -1,10 +1,17 @@
-# Projet-de-programmation
+# Requirements :
 
-On a utilisé la bibliothèque React de JavaScript
+1. Node (version la plus récente)
 
-1. Installer Node.js (>10)
-2. Installer NPM (Inclus avec Node.js)
-3. Dans le dossier, ouvrez un terminal:
-   3.1) $ npm install
-   3.2) $ npm run dev
-4. Aller sur localhost:3000 avec un navigateur à jour
+# Pour installer le projet :
+
+1. Ouvrir le dossier en utilisant votre terminal
+2. Ecriver les commandes suivantes :
+   $ npm install
+   $ npm run dev
+
+# Pour utiliser le générateur :
+
+1. Il y a un dossier appelé "GEN-TEST" dans le projet avec des images pour tester le générateur.
+2. Importez l'un des dossiers depuis le menu du jeu.
+3. Vous pouvez ajouter autant d'attributs que vous le souhaitez.
+3. Il y a un bouton de réinitialisation du jeu qui vous permet de revenir aux valeurs (images, attributs) par défaut.
