@@ -28,114 +28,6 @@ const HomePage = () => {
   const [hardMode, setHardMode] = useState(false);
   const [timer, setTimer] = useState(0);
 
-  if (savedGame) {
-    const savedGameData = JSON.parse(savedGame);
-
-    return (
-      <div className="homePage">
-        <div className="buttonList">
-          <ul>
-            <li>
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setButtonpopUp(true);
-                  setHardMode(false);
-                }}
-              >
-                Single-player (Easy Mode)
-              </button>
-            </li>
-            <li>
-              <br />
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setButtonpopUpHard(true);
-                }}
-              >
-                Single-player (Hard Mode)
-              </button>
-            </li>
-            <li>
-              <br />
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setButtonpopUp0(true);
-                  setHardMode(false);
-                }}
-              >
-                Single-player (Against AI)
-              </button>
-            </li>
-            <li>
-              <br />
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setButtonpopUp1(true);
-                }}
-              >
-                Generator
-              </button>
-            </li>
-            <li>
-              <br />
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setButtonpopUp2(true);
-                }}
-              >
-                What is Guess Who?
-              </button>
-            </li>
-          </ul>
-          <br></br>
-        </div>
-        <PopUpSmall trigger={buttonpopUpHard} setTrigger={setButtonpopUpHard}>
-          {" "}
-          <PopUpTimer
-            setTimer={setTimer}
-            timer={timer}
-            setButtonpopUp={setButtonpopUp}
-            setButtonpopUpHard={setButtonpopUpHard}
-            setHardMode={setHardMode}
-          />
-        </PopUpSmall>
-        <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
-          {" "}
-          <Board
-            savedGameData={savedGameData}
-            mode={hardMode}
-            timer={timer}
-            setTimer={setTimer}
-            GameOn={buttonpopUpHard}
-          />
-        </PopUp>
-
-        <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
-          {" "}
-          <Board savedGameData={savedGameData} ai={true} />
-        </PopUp>
-        <PopUp trigger={buttonpopUp1} setTrigger={setButtonpopUp1}>
-          {" "}
-          <Generator />
-        </PopUp>
-        <PopUp trigger={buttonpopUp2} setTrigger={setButtonpopUp2}>
-          {" "}
-          <WhatIsIt />
-        </PopUp>
-      </div>
-    );
-  }
-
   return (
     <div className="homePage">
       <div className="buttonList">
@@ -170,8 +62,8 @@ const HomePage = () => {
               className="button"
               type="button"
               onClick={() => {
-                setHardMode(false);
                 setButtonpopUp0(true);
+                setHardMode(false);
               }}
             >
               Single-player (Against AI)
@@ -191,7 +83,6 @@ const HomePage = () => {
           </li>
           <li>
             <br />
-
             <button
               className="button"
               type="button"
@@ -215,20 +106,51 @@ const HomePage = () => {
           setHardMode={setHardMode}
         />
       </PopUpSmall>
-      <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
-        {" "}
-        <Board
-          savedGameData={{ questions: [], questionsAI: [] }}
-          mode={hardMode}
-          timer={timer}
-          setTimer={setTimer}
-          GameOn={buttonpopUpHard}
-        />
-      </PopUp>
-      <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
-        {" "}
-        <Board savedGameData={{ questions: [], questionsAI: [] }} ai={true} />
-      </PopUp>
+      {(() => {
+        if (savedGame) {
+          const savedGameData = JSON.parse(savedGame);
+          return (
+            <>
+              <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
+                {" "}
+                <Board
+                  savedGameData={savedGameData}
+                  mode={hardMode}
+                  timer={timer}
+                  setTimer={setTimer}
+                  GameOn={buttonpopUpHard}
+                />
+              </PopUp>
+
+              <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
+                {" "}
+                <Board savedGameData={savedGameData} ai={true} />
+              </PopUp>
+            </>
+          );
+        }
+        return (
+          <>
+            <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
+              <Board
+                savedGameData={{ questions: [], questionsAI: [] }}
+                mode={hardMode}
+                timer={timer}
+                setTimer={setTimer}
+                GameOn={buttonpopUpHard}
+              />
+            </PopUp>
+            <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
+              {" "}
+              <Board
+                savedGameData={{ questions: [], questionsAI: [] }}
+                ai={true}
+              />
+            </PopUp>
+          </>
+        );
+      })()}
+
       <PopUp trigger={buttonpopUp1} setTrigger={setButtonpopUp1}>
         {" "}
         <Generator />
@@ -333,7 +255,7 @@ function PopUpTimer(props) {
   return (
     <div>
       <form className="Menu" onSubmit={handleSubmit1}>
-        <p>Inter The timer you want :</p>
+        <p className="counter">Inter The timer you want :</p>
         <input type="text" placeholder="Seconds" id="timer" />
         <Button type="submit" variant="light" className="button">
           Start Hard Mode
@@ -530,7 +452,6 @@ function Board(props) {
     function CountDown(propss) {
       const Completionist = () => {
         useEffect(() => {
-          alert("T'as plus de temps!");
           window.location.reload(false);
         }, []);
         return null;
@@ -561,6 +482,7 @@ function Board(props) {
             <input
               className="buttonRed"
               type="text"
+              pattern="[0-9]*"
               placeholder={time}
               disabled
             ></input>
