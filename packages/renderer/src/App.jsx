@@ -16,6 +16,7 @@ const chosenPerson = savedGame
   ? JSON.parse(savedGame).chosenPerson
   : data.possibilites[Math.floor(Math.random() * data.possibilites.length)];
 
+let pInQuestion;
 console.log(chosenPerson);
 
 const HomePage = () => {
@@ -739,7 +740,6 @@ const Generator = () => {
       <ValiderConfig />
     </div>
   );
-  let pInQuestion;
 
   function ModifierPersonnage(props) {
     function handleSubmit(event) {
