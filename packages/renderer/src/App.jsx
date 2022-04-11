@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
+import Countdown from "react-countdown";
 import data from "@/config.json";
 
 import dataGen from "@/configGen.json";
-import dataOG from "@/configOG.json"
+import dataOG from "@/configOG.json";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "@/styles/App.css";
 
-import Countdown from 'react-countdown';
-
 const savedGame = localStorage.getItem("session");
-
-// This is a crime
-let pInQuestion;
 
 const chosenPerson = savedGame
   ? JSON.parse(savedGame).chosenPerson
@@ -27,6 +23,9 @@ const HomePage = () => {
   const [buttonpopUp0, setButtonpopUp0] = useState(false);
   const [buttonpopUp1, setButtonpopUp1] = useState(false);
   const [buttonpopUp2, setButtonpopUp2] = useState(false);
+  const [buttonpopUpHard, setButtonpopUpHard] = useState(false);
+  const [hardMode, setHardMode] = useState(false);
+  const [timer, setTimer] = useState(15);
 
   if (savedGame) {
     const savedGameData = JSON.parse(savedGame);
@@ -41,20 +40,35 @@ const HomePage = () => {
                 type="button"
                 onClick={() => {
                   setButtonpopUp(true);
+                  setHardMode(false);
                 }}
               >
-                Single-player
+                Single-player (Easy Mode)
               </button>
             </li>
             <li>
+              <br />
+              <button
+                className="button"
+                type="button"
+                onClick={() => {
+                  setButtonpopUpHard(true);
+                }}
+              >
+                Single-player (Hard Mode)
+              </button>
+            </li>
+            <li>
+              <br />
               <button
                 className="button"
                 type="button"
                 onClick={() => {
                   setButtonpopUp0(true);
+                  setHardMode(false);
                 }}
               >
-                Single-player Against AI
+                Single-player (Against AI)
               </button>
             </li>
             <li>
@@ -84,10 +98,27 @@ const HomePage = () => {
           </ul>
           <br></br>
         </div>
+        <PopUpSmall trigger={buttonpopUpHard} setTrigger={setButtonpopUpHard}>
+          {" "}
+          <PopUpTimer
+            setTimer={setTimer}
+            timer={timer}
+            setButtonpopUp={setButtonpopUp}
+            setButtonpopUpHard={setButtonpopUpHard}
+            setHardMode={setHardMode}
+          />
+        </PopUpSmall>
         <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
           {" "}
-          <Board savedGameData={savedGameData} />
+          <Board
+            savedGameData={savedGameData}
+            mode={hardMode}
+            timer={timer}
+            setTimer={setTimer}
+            GameOn={buttonpopUpHard}
+          />
         </PopUp>
+
         <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
           {" "}
           <Board savedGameData={savedGameData} ai={true} />
@@ -114,20 +145,35 @@ const HomePage = () => {
               type="button"
               onClick={() => {
                 setButtonpopUp(true);
+                setHardMode(false);
               }}
             >
-              Single-player
+              Single-player (Easy Mode)
             </button>
           </li>
           <li>
+            <br />
             <button
               className="button"
               type="button"
               onClick={() => {
+                setButtonpopUpHard(true);
+              }}
+            >
+              Single-player (Hard Mode)
+            </button>
+          </li>
+          <li>
+            <br />
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setHardMode(false);
                 setButtonpopUp0(true);
               }}
             >
-              Single-player Against AI
+              Single-player (Against AI)
             </button>
           </li>
           <li>
@@ -158,9 +204,25 @@ const HomePage = () => {
         </ul>
         <br></br>
       </div>
+      <PopUpSmall trigger={buttonpopUpHard} setTrigger={setButtonpopUpHard}>
+        {" "}
+        <PopUpTimer
+          setTimer={setTimer}
+          timer={timer}
+          setButtonpopUp={setButtonpopUp}
+          setButtonpopUpHard={setButtonpopUpHard}
+          setHardMode={setHardMode}
+        />
+      </PopUpSmall>
       <PopUp trigger={buttonpopUp} setTrigger={setButtonpopUp}>
         {" "}
-        <Board savedGameData={{ questions: [], questionsAI: [] }} />
+        <Board
+          savedGameData={{ questions: [], questionsAI: [] }}
+          mode={hardMode}
+          timer={timer}
+          setTimer={setTimer}
+          GameOn={buttonpopUpHard}
+        />
       </PopUp>
       <PopUp trigger={buttonpopUp0} setTrigger={setButtonpopUp0}>
         {" "}
@@ -201,7 +263,20 @@ function PopUp(props) {
     <div></div>
   );
 }
-
+function PopUpSmall(props) {
+  return props.trigger ? (
+    <div className="PopUp PopUpSmall">
+      <div className="PopUp-inner PopUp-innerSmall">
+        <button className="close-btn" onClick={() => props.setTrigger(false)}>
+          x
+        </button>
+        {props.children}
+      </div>
+    </div>
+  ) : (
+    ""
+  );
+}
 function WhatIsIt(props) {
   return (
     <div className="WhatIsIt">
@@ -241,16 +316,51 @@ function WhatIsIt(props) {
     </div>
   );
 }
-
+function handleSubmit1(event) {
+  event.preventDefault();
+  console.log("hello" + timer1);
+  props.setTimer(event.target.timerValue.value);
+}
+function PopUpTimer(props) {
+  return (
+    <div>
+      <form className="Menu" onSubmit={(event) => handleSubmit1(event)}>
+        <p>Inter The timer you want :</p>
+        <input
+          type="text"
+          placeholder={props.timer}
+          name="timerValue"
+          id="timerValue"
+        ></input>
+        <Button
+          type="submit"
+          variant="light"
+          className="button"
+          onClick={() => {
+            props.setButtonpopUp(true);
+            props.setButtonpopUpHard(false);
+            props.setHardMode(true);
+          }}
+        >
+          Start Hard Mode
+        </Button>
+      </form>
+    </div>
+  );
+}
 function Board(props) {
   const [questions, setQuestions] = useState(props.savedGameData.questions);
-  const [questionsAI, setQuestionsAI] = useState(props.savedGameData.questionsAI);
-
+  const [questionsAI, setQuestionsAI] = useState(
+    props.savedGameData.questionsAI
+  );
 
   const eliminatedUsers = [];
   data.possibilites.forEach((p) => {
     questions.forEach((q) => {
-      if ((p[q[0]] === q[1]) !== q[2] && (!eliminatedUsers.includes(data.possibilites.indexOf(p))))
+      if (
+        (p[q[0]] === q[1]) !== q[2] &&
+        !eliminatedUsers.includes(data.possibilites.indexOf(p))
+      )
         eliminatedUsers.push(data.possibilites.indexOf(p));
     });
   });
@@ -258,34 +368,41 @@ function Board(props) {
   const eliminatedUsersByAI = [];
   data.possibilites.forEach((p) => {
     questionsAI.forEach((q) => {
-      if ((p[q[0]] === q[1]) !== q[2] && (!eliminatedUsersByAI.includes(data.possibilites.indexOf(p))))
+      if (
+        (p[q[0]] === q[1]) !== q[2] &&
+        !eliminatedUsersByAI.includes(data.possibilites.indexOf(p))
+      )
         eliminatedUsersByAI.push(data.possibilites.indexOf(p));
     });
   });
 
   useEffect(() => {
     if (eliminatedUsers.length === data.possibilites.length - 1) {
-      alert(`T'as gagné ! T'as demandé ${questions.length} question(s) !`)
+      alert(`T'as gagné ! T'as demandé ${questions.length} question(s) !`);
       localStorage.removeItem("session");
       window.location.reload(false);
     }
-  }, [eliminatedUsers])
+  }, [eliminatedUsers]);
 
   useEffect(() => {
-    if (eliminatedUsersByAI.length === data.possibilites.length - 1 && eliminatedUsers.length !== data.possibilites.length - 1) {
-      alert(`T'as perdu ! IA a demandé ${questionsAI.length} question(s) ! `)
+    if (
+      eliminatedUsersByAI.length === data.possibilites.length - 1 &&
+      eliminatedUsers.length !== data.possibilites.length - 1
+    ) {
+      alert(`T'as perdu ! IA a demandé ${questionsAI.length} question(s) ! `);
       localStorage.removeItem("session");
       window.location.reload(false);
     }
-  }, [eliminatedUsersByAI])
+  }, [eliminatedUsersByAI]);
 
-  if (props.ai && (questions.length > questionsAI.length)) {
-    const attributess = []
+  if (props.ai && questions.length > questionsAI.length) {
+    const attributess = [];
     Object.keys(data.possibilites[0]).forEach((key) => {
       if (key != "fichier") attributess.push(key);
-    })
+    });
 
-    let chosenAttributByAI = attributess[Math.floor(Math.random() * attributess.length)]
+    let chosenAttributByAI =
+      attributess[Math.floor(Math.random() * attributess.length)];
     const filterQualities = (attribut) => {
       const qualites = [];
 
@@ -305,20 +422,20 @@ function Board(props) {
     let qualitiesAI = filterQualities(chosenAttributByAI);
 
     while (qualitiesAI.length === 1) {
-      chosenAttributByAI = attributess[Math.floor(Math.random() * attributess.length)]
+      chosenAttributByAI =
+        attributess[Math.floor(Math.random() * attributess.length)];
       qualitiesAI = filterQualities(chosenAttributByAI);
     }
 
-    const qualiteQuestionAI = qualitiesAI[Math.floor(Math.random() * qualitiesAI.length)]
-
+    const qualiteQuestionAI =
+      qualitiesAI[Math.floor(Math.random() * qualitiesAI.length)];
 
     setQuestionsAI((prevQuestions) => [
       ...prevQuestions,
       [
         chosenAttributByAI,
         qualiteQuestionAI,
-        qualiteQuestionAI ===
-        chosenPerson[chosenAttributByAI],
+        qualiteQuestionAI === chosenPerson[chosenAttributByAI],
       ],
     ]);
   }
@@ -326,8 +443,10 @@ function Board(props) {
   return (
     <div>
       {data.possibilites.map((p) => {
-        let eliminatedByAI = eliminatedUsersByAI.includes(data.possibilites.indexOf(p))
-        if (questions.length > 1) eliminatedByAI = false
+        let eliminatedByAI = eliminatedUsersByAI.includes(
+          data.possibilites.indexOf(p)
+        );
+        if (questions.length > 1) eliminatedByAI = false;
 
         if (eliminatedUsers.includes(data.possibilites.indexOf(p))) {
           return (
@@ -360,6 +479,10 @@ function Board(props) {
         questions={questions}
         setQuestions={setQuestions}
         questionsAI={questionsAI}
+        mode={props.mode}
+        timer={props.timer}
+        setTimer={props.setTimer}
+        GameOn={props.GameOn}
       />
     </div>
   );
@@ -367,21 +490,11 @@ function Board(props) {
   function Personnage(props) {
     if (props.eliminatedByAI) {
       return (
-        <img
-          className="PersonnageEByAI"
-          src={props.src}
-          alt={props.name}
-        />
+        <img className="PersonnageEByAI" src={props.src} alt={props.name} />
       );
     }
 
-    return (
-      <img
-        className="Personnage"
-        src={props.src}
-        alt={props.name}
-      />
-    );
+    return <img className="Personnage" src={props.src} alt={props.name} />;
   }
 
   function Menu(props) {
@@ -403,7 +516,7 @@ function Board(props) {
           event.target.attribut.value,
           event.target.qualite.value,
           event.target.qualite.value ===
-          chosenPerson[event.target.attribut.value],
+            chosenPerson[event.target.attribut.value],
         ],
       ]);
     }
@@ -420,8 +533,104 @@ function Board(props) {
       window.location.reload(false);
     }
 
+    function CountDown(propss) {
+      const Completionist = () => {
+        useEffect(() => {
+          alert("T'as plus de temps!");
+        }, []);
+        window.location.reload(false);
+      };
+
+      // Renderer callback with condition
+      const renderer = ({ minutes, seconds, completed }) => {
+        var time = minutes + ":" + seconds;
+        if (seconds + 60 * minutes <= 10 && seconds + 60 * minutes != 0) {
+          return (
+            <span className="counter">
+              Tu perds dans
+              <input
+                className="buttonRed"
+                type="text"
+                value={time}
+                disabled
+              ></input>
+            </span>
+          );
+        }
+        if (completed) {
+          // Render a complete state
+          return <Completionist />;
+        } else {
+          // Render a countdown
+          return (
+            <input
+              className="buttonRed"
+              type="text"
+              placeholder={time}
+              disabled
+            ></input>
+          );
+        }
+      };
+
+      const getLocalStorageValue = (s) => localStorage.getItem(s);
+
+      const [data, setData] = useState(
+        { date: Date.now(), delay: propss.timer * 1000 } //10 seconds
+      );
+      const wantedDelay = propss.timer * 1000; //10 ms
+      useEffect(() => {
+        if (props.GameOn === false && props.questions.length === 0) {
+          localStorage.removeItem("end_date");
+        }
+      }, [props.GameOn]);
+      //[START] componentDidMount
+      //Code runs only one time after each reloading
+      useEffect(() => {
+        const savedDate = getLocalStorageValue("end_date");
+        if (savedDate != null && !isNaN(savedDate)) {
+          const currentTime = Date.now();
+          const delta = parseInt(savedDate, 10) - currentTime;
+
+          //No update the end date with the current date
+          setData({ date: currentTime, delay: delta });
+        }
+      }, []);
+
+      return (
+        <div>
+          <Countdown
+            date={data.date + data.delay}
+            renderer={renderer}
+            onStart={(delta) => {
+              //Save the end date
+              if (localStorage.getItem("end_date") == null)
+                localStorage.setItem(
+                  "end_date",
+                  JSON.stringify(data.date + data.delay)
+                );
+            }}
+          />
+        </div>
+      );
+    }
+
     return (
       <form className="Menu" onSubmit={(event) => handleSubmit(event)}>
+        {(() => {
+          if (props.mode) {
+            return (
+              <div id="count">
+                {" "}
+                <CountDown
+                  timer={props.timer}
+                  mode={props.mode}
+                  setTimer={props.setTimer}
+                />
+              </div>
+            );
+          }
+        })()}
         <div>
           <AttributeSelector />
         </div>
@@ -530,6 +739,7 @@ const Generator = () => {
       <ValiderConfig />
     </div>
   );
+  let pInQuestion;
 
   function ModifierPersonnage(props) {
     function handleSubmit(event) {
@@ -697,7 +907,6 @@ const Generator = () => {
                     );
 
                     configData.possibilites.push({ fichier: file });
-
                   }
                 });
 
@@ -720,7 +929,8 @@ const Generator = () => {
 
   function ValiderConfig(props) {
     function handleOnClick() {
-      if (Object.keys(dataGen.possibilites[0]).length < 2) return alert("Ajouter au moins un attribut !")
+      if (Object.keys(dataGen.possibilites[0]).length < 2)
+        return alert("Ajouter au moins un attribut !");
       let isDone = true;
       dataGen.possibilites.forEach((p) => {
         Object.keys(p).forEach((k) => {
@@ -743,14 +953,17 @@ const Generator = () => {
         <Button type="submit" className="buttonYellow" onClick={handleOnClick}>
           Valider La Configuration
         </Button>
-        <Button className="buttonYellow" onClick={async () => {
-          window.fs.writeFileSync(
-            "./packages/renderer/src/configGen.json",
-            JSON.stringify(dataOG)
-          );
+        <Button
+          className="buttonYellow"
+          onClick={async () => {
+            window.fs.writeFileSync(
+              "./packages/renderer/src/configGen.json",
+              JSON.stringify(dataOG)
+            );
 
-          setImagesExists(true);
-        }}>
+            setImagesExists(true);
+          }}
+        >
           Reset Game
         </Button>
       </div>
@@ -781,7 +994,7 @@ const Generator = () => {
                 {" "}
                 Nombre de Personnages :
               </label>
-              { }
+              {}
               <input
                 type="text"
                 className="button"
