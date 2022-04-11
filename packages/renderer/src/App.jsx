@@ -26,7 +26,7 @@ const HomePage = () => {
   const [buttonpopUp2, setButtonpopUp2] = useState(false);
   const [buttonpopUpHard, setButtonpopUpHard] = useState(false);
   const [hardMode, setHardMode] = useState(false);
-  const [timer, setTimer] = useState(15);
+  const [timer, setTimer] = useState(0);
 
   if (savedGame) {
     const savedGameData = JSON.parse(savedGame);
@@ -317,32 +317,25 @@ function WhatIsIt(props) {
     </div>
   );
 }
-function handleSubmit1(event) {
-  event.preventDefault();
-  console.log("hello" + timer1);
-  props.setTimer(event.target.timerValue.value);
-}
+
 function PopUpTimer(props) {
+  function handleSubmit1(event) {
+    event.preventDefault();
+    if (event.target.timer.value < 1) {
+      return null;
+    }
+
+    props.setTimer(event.target.timer.value);
+    props.setButtonpopUp(true);
+    props.setButtonpopUpHard(false);
+    props.setHardMode(true);
+  }
   return (
     <div>
-      <form className="Menu" onSubmit={(event) => handleSubmit1(event)}>
+      <form className="Menu" onSubmit={handleSubmit1}>
         <p>Inter The timer you want :</p>
-        <input
-          type="text"
-          placeholder={props.timer}
-          name="timerValue"
-          id="timerValue"
-        ></input>
-        <Button
-          type="submit"
-          variant="light"
-          className="button"
-          onClick={() => {
-            props.setButtonpopUp(true);
-            props.setButtonpopUpHard(false);
-            props.setHardMode(true);
-          }}
-        >
+        <input type="text" placeholder="Seconds" id="timer" />
+        <Button type="submit" variant="light" className="button">
           Start Hard Mode
         </Button>
       </form>
@@ -538,8 +531,9 @@ function Board(props) {
       const Completionist = () => {
         useEffect(() => {
           alert("T'as plus de temps!");
+          window.location.reload(false);
         }, []);
-        window.location.reload(false);
+        return null;
       };
 
       // Renderer callback with condition
@@ -638,13 +632,19 @@ function Board(props) {
         <Button type="submit" variant="light" className="button">
           Valider
         </Button>{" "}
-        <Button
-          onClick={() => handleSaveClick()}
-          variant="light"
-          className="button"
-        >
-          Sauvgarder
-        </Button>{" "}
+        {(() => {
+          if (!props.mode) {
+            return (
+              <Button
+                onClick={() => handleSaveClick()}
+                variant="light"
+                className="button"
+              >
+                Sauvgarder
+              </Button>
+            );
+          }
+        })()}
       </form>
     );
 
