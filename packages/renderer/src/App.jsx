@@ -107,7 +107,7 @@ const HomePage = () => {
         />
       </PopUpSmall>
       {(() => {
-        if (savedGame) {
+        if (savedGame && !hardMode) {
           const savedGameData = JSON.parse(savedGame);
           return (
             <>
@@ -248,9 +248,9 @@ function PopUpTimer(props) {
     }
 
     props.setTimer(event.target.timer.value);
-    props.setButtonpopUp(true);
     props.setButtonpopUpHard(false);
     props.setHardMode(true);
+    props.setButtonpopUp(true);
   }
   return (
     <div>
@@ -432,7 +432,7 @@ function Board(props) {
           event.target.attribut.value,
           event.target.qualite.value,
           event.target.qualite.value ===
-            chosenPerson[event.target.attribut.value],
+          chosenPerson[event.target.attribut.value],
         ],
       ]);
     }
@@ -452,6 +452,7 @@ function Board(props) {
     function CountDown(propss) {
       const Completionist = () => {
         useEffect(() => {
+          localStorage.removeItem("session");
           window.location.reload(false);
         }, []);
         return null;
@@ -916,7 +917,7 @@ const Generator = () => {
                 {" "}
                 Nombre de Personnages :
               </label>
-              {}
+              { }
               <input
                 type="text"
                 className="button"
