@@ -78,7 +78,7 @@ const HomePage = () => {
                 setButtonpopUp1(true);
               }}
             >
-              Generator
+              Générateur
             </button>
           </li>
           <li>
@@ -90,7 +90,7 @@ const HomePage = () => {
                 setButtonpopUp2(true);
               }}
             >
-              What is Guess Who?
+              Qu'est que Guess Who?
             </button>
           </li>
         </ul>
@@ -294,7 +294,7 @@ function Board(props) {
 
   useEffect(() => {
     if (eliminatedUsers.length === data.possibilites.length - 1) {
-      alert(`T'as gagné ! T'as demandé ${questions.length} question(s) !`);
+      alert(`T'as gagné ! T'as posé ${questions.length} question(s) !`);
       localStorage.removeItem("session");
       window.location.reload(false);
     }
@@ -305,7 +305,7 @@ function Board(props) {
       eliminatedUsersByAI.length === data.possibilites.length - 1 &&
       eliminatedUsers.length !== data.possibilites.length - 1
     ) {
-      alert(`T'as perdu ! IA a demandé ${questionsAI.length} question(s) ! `);
+      alert(`T'as perdu ! IA a posé ${questionsAI.length} question(s) ! `);
       localStorage.removeItem("session");
       window.location.reload(false);
     }
@@ -362,7 +362,7 @@ function Board(props) {
         let eliminatedByAI = eliminatedUsersByAI.includes(
           data.possibilites.indexOf(p)
         );
-        if (questions.length > 1) eliminatedByAI = false;
+        if (questions.length > 0) eliminatedByAI = false;
 
         if (eliminatedUsers.includes(data.possibilites.indexOf(p))) {
           return (
@@ -399,6 +399,7 @@ function Board(props) {
         timer={props.timer}
         setTimer={props.setTimer}
         GameOn={props.GameOn}
+        ai={props.ai}
       />
     </div>
   );
@@ -532,9 +533,55 @@ function Board(props) {
         </div>
       );
     }
+    function CountPersonnagesElimine(props) {
+      if (props.who === "AI") {
+        return (
+          <div className="Menu">
+            <label htmlFor="CountPersonnagesElimineAI">
+              {" "}
+              Personnages éliminés ( AI ) :
+            </label>
 
+            <input
+              type="text"
+              className="buttonRed"
+              id="CountPersonnagesElimineAI"
+              defaultValue={eliminatedUsersByAI.length}
+            />
+          </div>
+        );
+      }
+      if (props.who === "Player") {
+        return (
+          <div className="Menu">
+            {" "}
+            <label htmlFor="CountPersonnagesElimine">
+              {" "}
+              Personnages éliminés(vous):
+            </label>
+            <input
+              type="text"
+              className="buttonRed"
+              id="CountPersonnagesElimine"
+              defaultValue={eliminatedUsers.length}
+            />
+          </div>
+        );
+      }
+    }
     return (
       <form className="Menu" onSubmit={(event) => handleSubmit(event)}>
+        {(() => {
+          if (props.ai) {
+            return (
+              <div className="counter">
+                {" "}
+                <CountPersonnagesElimine who="AI" />
+                <CountPersonnagesElimine who="Player" />
+              </div>
+            );
+          }
+        })()}
         {(() => {
           if (props.mode) {
             return (
@@ -642,7 +689,7 @@ const Generator = () => {
 
   return (
     <div>
-      <h1 className="titles">Generator</h1>
+      <h1 className="titles">Générateur</h1>
       <UpperMenu />
       <Table />
       <PopUpSmall
@@ -677,7 +724,7 @@ const Generator = () => {
 
       if (!testPassed) return alert("Remplir tous les attributs !");
 
-      if (pInQuestion === 0 || pInQuestion >= 0) {
+      if (pInQuestion >= 0) {
         Object.keys(dataGen.possibilites[0]).map((key) => {
           if (key !== "fichier") {
             dataGen.possibilites[pInQuestion][key] = event.target[key].value;
