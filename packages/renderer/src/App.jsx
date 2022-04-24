@@ -107,7 +107,7 @@ const HomePage = () => {
         />
       </PopUpSmall>
       {(() => {
-        if (savedGame) {
+        if (savedGame && !hardMode) {
           const savedGameData = JSON.parse(savedGame);
           return (
             <>
@@ -433,7 +433,7 @@ function Board(props) {
           event.target.attribut.value,
           event.target.qualite.value,
           event.target.qualite.value ===
-            chosenPerson[event.target.attribut.value],
+          chosenPerson[event.target.attribut.value],
         ],
       ]);
     }
@@ -453,6 +453,7 @@ function Board(props) {
     function CountDown(propss) {
       const Completionist = () => {
         useEffect(() => {
+          localStorage.removeItem("session");
           window.location.reload(false);
         }, []);
         return null;
@@ -953,6 +954,7 @@ const Generator = () => {
       ""
     );
   }
+
   function UpperMenu(props) {
     return (
       <div>
@@ -963,7 +965,7 @@ const Generator = () => {
                 {" "}
                 Nombre de Personnages :
               </label>
-              {}
+              { }
               <input
                 type="text"
                 className="button"
@@ -992,6 +994,7 @@ const Generator = () => {
       </div>
     );
   }
+
   function Table(params) {
     const isEmpty = Object.keys(dataGen).length === 0;
     if (isEmpty) {
@@ -1000,6 +1003,7 @@ const Generator = () => {
     }
 
     setNombrePersonnage(dataGen.possibilites.length);
+
     if (!imagesExists) {
       return data.possibilites.map((p) => {
         return (
