@@ -1,5 +1,7 @@
 # Qui Est-Ce ?
 
+Jeu de société où le but du jeu est de se montrer rusé en posant des questions qui se répondent que par oui ou non pour découvrir le personnage mystère de son adversaire. Version française.
+
 ![Home Page](./RAPPORT/Home_Page.png)
 ![Game Against AI](./RAPPORT/Jeu_AI.png)
 ![Game Against AI](./RAPPORT/Timer2.png)
